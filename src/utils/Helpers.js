@@ -23,7 +23,7 @@ export default class Helpers {
     //Хелпер сетка
     const gridHelper = new THREE.GridHelper( 20, 20 );
     this.scene.add( gridHelper );
-    const helper2 = new THREE.DirectionalLightHelper( this.light, 5 );
+    const helper2 = new THREE.PointLightHelper( this.light, 5 );
     this.scene.add( helper2 );
     //Контроль камеры
     const controls = new OrbitControls(this.camera.perspectiveCamera, this.canvas)

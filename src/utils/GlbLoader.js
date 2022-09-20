@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import Experience from "../Experience";
 
 export default class GlbLoader {
-  constructor(url) {
+  constructor() {
     this.experience = new Experience()
     const fileUrl = new URL('../models/Wagon_6.glb', import.meta.url)
     const loader = new GLTFLoader();
@@ -11,7 +11,6 @@ export default class GlbLoader {
         this.model = gltf.scene
         this.model.position.set(0, 2.3, 0)
         this.model.castShadow = true
-        this.model.receiveShadow = true
         this.experience.scene.add(this.model)
       }, undefined, (e) => {
         console.log(e, 'huy')

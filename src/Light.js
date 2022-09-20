@@ -9,8 +9,9 @@ export default class Light {
     // this.light.position.set( 0, 5, 0 );
     // this.light.rotation.set(-1.6, 0, 0)
 
-    this.light = new THREE.SpotLight({color: "white"})
-    this.light.position.set(12.5, 12.5, 12.5)
+    this.light = new THREE.PointLight("#F6BE00", .5)
+    this.light.position.set(2.3,1,-.5)
+    // this.light.position.set(2, 2, 0)
     this.light.castShadow = true
 
     this.createDatGuiFolder()

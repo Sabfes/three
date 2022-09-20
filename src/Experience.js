@@ -9,6 +9,7 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import Plane from "./Plane";
 import GlbLoader from "./utils/GlbLoader";
 import Helpers from "./utils/Helpers";
+import {SphereGeometry} from "three";
 
 // this.mousePosition = new THREE.Vector2()
 // window.addEventListener('mousemove', (e) => {
@@ -36,6 +37,21 @@ export default class Experience {
     this.camera = new Camera(true)
     this.sizes = new Sizes()
     this.renderer = new Renderer()
+
+
+    this.light1 = new THREE.PointLight("grey", .7)
+    this.light1.position.set(2,5,1)
+    // this.light.position.set(2, 2, 0)
+    this.light1.castShadow = true
+    this.sphere = new THREE.Mesh(
+      new THREE.SphereGeometry(1,16,16),
+      new THREE.MeshBasicMaterial({color: '#F6BE00'})
+    )
+    this.sphere.add(this.light1)
+    this.sphere.position.set(2,5,1)
+    this.sphere.material.opacity = 0.6
+    this.sphere.castShadow = true
+    this.scene.add(this.sphere)
 
     new Plane()
     new GlbLoader()
