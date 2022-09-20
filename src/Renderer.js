@@ -16,6 +16,7 @@ export default class Renderer {
       canvas: this.canvas,
       antialias: true,
     })
+    this.renderer.shadowMap.enabled = true
     this.renderer.setSize(this.sizes.width, this.sizes.height)
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
@@ -36,7 +37,6 @@ export default class Renderer {
     // this.experience.rayCaster.setFromCamera(this.experience.mousePosition, this.camera.perspectiveCamera)
     // const intersects = this.experience.rayCaster.intersectObjects(this.scene.children)
     // console.log(intersects)
-
     this.renderer.render(this.scene, this.camera.perspectiveCamera)
     window.requestAnimationFrame(() => this.update(new Date()))
   }

@@ -11,7 +11,7 @@ export default class Plane {
     )
     this.plane.rotation.set(-1.55, 0 ,0)
     this.plane.receiveShadow = true
-    this.plane.castShadow = true
+    // this.plane.castShadow = true
     this.scene.add(this.plane)
   }
 }

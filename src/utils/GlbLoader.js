@@ -9,7 +9,7 @@ export default class GlbLoader {
     const loader = new GLTFLoader();
     loader.load( fileUrl.href,  ( gltf ) => {
         this.model = gltf.scene
-        this.model.position.set(0, 2, 0)
+        this.model.position.set(0, 2.3, 0)
         this.model.castShadow = true
         this.model.receiveShadow = true
         this.experience.scene.add(this.model)
