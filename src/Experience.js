@@ -2,11 +2,20 @@ import * as THREE from 'three'
 import Sizes from "./utils/Sizes";
 import Camera from "./Camera";
 import Renderer from "./Renderer";
-import Box from "./Box";
 import Light from "./Light";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
-import {Fog} from "three";
 import dat from 'dat.gui'
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import Plane from "./Plane";
+import GlbLoader from "./utils/GlbLoader";
+import Helpers from "./utils/Helpers";
+
+// this.mousePosition = new THREE.Vector2()
+// window.addEventListener('mousemove', (e) => {
+//   this.mousePosition.x = (e.clientX / window.innerWidth) * 2 -1
+//   this.mousePosition.y = - (e.clientY / window.innerHeight) * 2 + 1
+// })
+// this.rayCaster = new THREE.Raycaster()
 
 export default class Experience {
   static instance
@@ -19,36 +28,18 @@ export default class Experience {
     this.gui = new dat.GUI()
     this.canvas = canvas
     this.scene = new THREE.Scene();
-
     //Свет
     this.light = new Light()
     this.scene.add(this.light)
 
-    // Куб
-    this.box = new Box(1,1,1, 'red')
-    this.scene.add(this.box)
 
     this.camera = new Camera(true)
     this.sizes = new Sizes()
     this.renderer = new Renderer()
 
-    // Хелпер оси
-    const axesHelper = new THREE.AxesHelper( 5 );
-    this.scene.add( axesHelper );
-    //Хелпер камера
-    const helper = new THREE.CameraHelper( this.camera.perspectiveCamera );
-    this.scene.add( helper );
-    //Хелпер сетка
-    const gridHelper = new THREE.GridHelper( 20, 20 );
-    this.scene.add( gridHelper );
-    const helper2 = new THREE.DirectionalLightHelper( this.light, 5 );
-    this.scene.add( helper2 );
-
-
-    const controls = new OrbitControls(this.camera.perspectiveCamera, this.canvas)
-    controls.enableDamping = true
-    this.scene.add(controls)
-
+    new Plane()
+    new GlbLoader()
+    new Helpers()
 
     window.addEventListener('resize', () => {
       {

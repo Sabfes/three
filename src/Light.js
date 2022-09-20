@@ -4,12 +4,16 @@ import * as THREE from 'three'
 export default class Light {
   constructor() {
     this.experience = new Experience()
-    this.light = new THREE.DirectionalLight( 0xFFFFFF )
-    this.light.position.set( 0, 5, 0 );
-    this.light.rotation.set(-1.6, 0, 0)
+
+    // this.light = new THREE.DirectionalLight( 0xFFFFFF )
+    // this.light.position.set( 0, 5, 0 );
+    // this.light.rotation.set(-1.6, 0, 0)
+
+    this.light = new THREE.SpotLight({color: "white"})
+    this.light.position.set(12.5, 12.5, 12.5)
+    this.light.castShadow = true
 
     this.createDatGuiFolder()
-
     return this.light
   }
 
