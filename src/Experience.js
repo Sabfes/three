@@ -6,6 +6,7 @@ import Box from "./Box";
 import Light from "./Light";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {Fog} from "three";
+import dat from 'dat.gui'
 
 export default class Experience {
   static instance
@@ -15,7 +16,7 @@ export default class Experience {
       return Experience.instance
     }
     Experience.instance = this
-
+    this.gui = new dat.GUI()
     this.canvas = canvas
     this.scene = new THREE.Scene();
 
@@ -27,7 +28,7 @@ export default class Experience {
     this.box = new Box(1,1,1, 'red')
     this.scene.add(this.box)
 
-    this.camera = new Camera()
+    this.camera = new Camera(true)
     this.sizes = new Sizes()
     this.renderer = new Renderer()
 
