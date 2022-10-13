@@ -17,7 +17,7 @@ export default class Camera {
       1,
       1000
     )
-    this.perspectiveCamera.position.set(5,4,0)
+    this.perspectiveCamera.position.set(5,2,0)
     this.perspectiveCamera.lookAt(this.scene.position)
     this.scene.add(this.perspectiveCamera)
 
