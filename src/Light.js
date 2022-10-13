@@ -5,13 +5,19 @@ export default class Light {
   constructor() {
     this.experience = new Experience()
 
-    // this.light = new THREE.DirectionalLight( 0xFFFFFF )
+    this.light = new THREE.DirectionalLight( 0xFFFFFF )
     // this.light.position.set( 0, 5, 0 );
     // this.light.rotation.set(-1.6, 0, 0)
 
-    this.light = new THREE.PointLight("#F6BE00", .5)
-    this.light.position.set(2.3,1,-.5)
+    // this.light = new THREE.AmbientLight('white')
+
+    // this.light = new THREE.SpotLight('white')
+
+
+    // this.light = new THREE.PointLight("white", .5)
     // this.light.position.set(2, 2, 0)
+    this.light.position.set(4,5,4)
+
     this.light.castShadow = true
 
     this.createDatGuiFolder()

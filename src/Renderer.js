@@ -15,11 +15,11 @@ export default class Renderer {
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
       antialias: true,
+      alpha: true
     })
     this.renderer.shadowMap.enabled = true
     this.renderer.setSize(this.sizes.width, this.sizes.height)
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
     this.update(new Date())
   }
 
