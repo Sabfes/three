@@ -1,4 +1,4 @@
-import View from "./view"
+import { View } from "@views/view"
 import * as THREE from 'three'
 
 export class Camera {
@@ -11,7 +11,7 @@ export class Camera {
 
     setInstance() {
         this.instance = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-        this.instance.position.z = 10
+        this.instance.position.set(0, 0, 5)
     }
 
     update() {

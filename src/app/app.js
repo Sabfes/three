@@ -1,5 +1,5 @@
 import { State } from "@app/state"
-import View from "./views/view"
+import { View } from "@views/view"
 
 /**
  * App class
@@ -18,7 +18,7 @@ export class App {
             this.resize()
         })
 
-        this.update()
+        this.view.renderer.instance.setAnimationLoop(() => this.update())
     }
 
     resize() {
@@ -26,11 +26,6 @@ export class App {
     }
     
     update() {
-        this.state.update()
         this.view.update()
-
-        window.requestAnimationFrame(() => {
-            this.update()
-        })
     }
 }

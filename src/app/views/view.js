@@ -1,10 +1,10 @@
-import { Sky } from "@app/views/sky";
 import * as THREE from 'three'
-import { Renderer } from "@app/views/renderer";
-import { Camera } from "./camera";
-import { Light } from "./light";
+import { Renderer } from "@views/renderer";
+import { Camera } from "@views/camera";
+import { Light } from "@views/light";
+import { Player } from "@views/player";
 
-export default class View {
+export class View {
     static instance
 
     static getInstance() {
@@ -16,10 +16,11 @@ export default class View {
         View.instance = this
 
         this.scene = new THREE.Scene()
+        this.scene.background = new THREE.Color( 0xbfe3dd );
         this.camera = new Camera()
+        this.player = new Player()
         this.renderer = new Renderer()
         this.light = new Light()
-        this.sky = new Sky()
     }
 
     resize() {
@@ -27,6 +28,7 @@ export default class View {
     }
 
     update() {
+        this.player.update()
         this.renderer.update()
     }
 }
