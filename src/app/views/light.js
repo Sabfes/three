@@ -1,5 +1,5 @@
 import { View } from "@views/view"
-import * as THREE from 'three';
+import {DirectionalLight, AmbientLight} from 'three';
 
 export class Light {
     constructor() {
@@ -10,7 +10,13 @@ export class Light {
     }   
 
     setInstance() {
-        this.instance = new THREE.AmbientLight( 'red', 1000 )
+        this.instance = new AmbientLight( 0x404040, 20 )
         this.scene.add(this.instance)
+
+        const light = new DirectionalLight(0xffffff, 3);
+        light.position.set(5, 5, 5);
+        light.castShadow = true;
+        this.scene.add(light)
+
     }
 }

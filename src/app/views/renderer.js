@@ -1,4 +1,4 @@
-import * as THREE from 'three'
+import { WebGLRenderer } from 'three'
 import { View } from "@views/view"
 
 export class Renderer {
@@ -12,13 +12,14 @@ export class Renderer {
     }
 
     setInstance() {
-        this.instance = new THREE.WebGLRenderer({
+        this.instance = new WebGLRenderer({
             alpha: true,
             antialias: true
         })
 
         this.instance.setPixelRatio( window.devicePixelRatio );
         this.instance.setSize( window.innerWidth, window.innerHeight );
+        this.instance.shadowMap.enabled = true;
         document.body.appendChild( this.instance.domElement );
     }
 

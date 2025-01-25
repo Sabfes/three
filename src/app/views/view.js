@@ -1,8 +1,9 @@
-import * as THREE from 'three'
+import { Scene, Color} from 'three'
 import { Renderer } from "@views/renderer";
 import { Camera } from "@views/camera";
 import { Light } from "@views/light";
 import { Player } from "@views/player";
+import { World } from './world';
 
 export class View {
     static instance
@@ -15,10 +16,11 @@ export class View {
         if (View.instance) return View.instance
         View.instance = this
 
-        this.scene = new THREE.Scene()
-        this.scene.background = new THREE.Color( 0xbfe3dd );
+        this.scene = new Scene()
+        this.scene.background = new Color( 0xbfe3dd );
         this.camera = new Camera()
         this.player = new Player()
+        this.world = new World()
         this.renderer = new Renderer()
         this.light = new Light()
     }
